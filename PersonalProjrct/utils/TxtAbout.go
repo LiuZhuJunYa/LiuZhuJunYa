@@ -15,3 +15,5 @@ func TxtReading(address string) string {
 	str := string(data)
 	return str
 }
+
+//设计一个方法用于输出txt文本
