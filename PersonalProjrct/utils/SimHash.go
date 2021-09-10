@@ -1,6 +1,8 @@
 package utils
 
-import "math/big"
+import (
+	"math/big"
+)
 
 //抽象定义一个海明哈希类型
 type SimHash struct {
@@ -14,3 +16,4 @@ func Params() (s *SimHash) {
 	s.HashBits = 128
 	return s
 }
+
