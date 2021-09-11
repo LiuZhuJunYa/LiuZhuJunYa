@@ -1,7 +1,7 @@
 package main
 
 import (
-	"PersonalProjrct/utils"
+	"PersonalProjrct/src/utils"
 	"fmt"
 )
 
