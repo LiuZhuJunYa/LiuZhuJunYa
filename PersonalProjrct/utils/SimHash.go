@@ -20,13 +20,15 @@ func Params() (s *SimHash) {
 
 //核心算法海明距离的实现
 func (s *SimHash) Simhash(str string) *big.Int {
-	m := strings.Split(str, "\"")
+	//核心方法之一，对传入文本进行分割，选择的参数会影响到simhash的计算
+	m := strings.Split(str, "，")
 
 	token_int := make([]int, s.HashBits)
 	for i := 0; i < len(m); i++ {
 		temp := m[i]
+		//获取其hash值
 		t := s.Hash(temp)
-		//fmt.Println(t)
+		//加权合并
 		for j := 0; j < s.HashBits; j++ {
 			fbIng := big.NewInt(1)
 			bitMask := fbIng.Lsh(fbIng, uint(j))
@@ -41,6 +43,7 @@ func (s *SimHash) Simhash(str string) *big.Int {
 
 	}
 	fingerprint := big.NewInt(0)
+	//降维
 	for i := 0; i < s.HashBits; i++ {
 		if token_int[i] >= 0 {
 			oneBig := big.NewInt(1)

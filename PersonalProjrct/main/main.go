@@ -17,10 +17,22 @@ func main() {
 	fmt.Scanln(&address)
 	str2 := utils.TxtReading(address)
 
+	//计算simhash
+	s := utils.Params()
+	hash1 := s.Simhash(str1)
+	fmt.Println(hash1)
+	hash2 := s.Simhash(str2)
+	fmt.Println(hash2)
 
+	////距离
+	distance := s.HammingDistance(hash1, hash2)
+	fmt.Println(distance)
+	////计算相似度
+	similarity := s.Similarity(hash1, hash2)
+	fmt.Println(similarity)
 }
 
 //在cmd命令行中测试的主函数
-func cmd(address1 , address2 string) {
-
-}
+//func cmd(address1 , address2 string) {
+//
+//}
