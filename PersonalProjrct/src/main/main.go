@@ -16,10 +16,10 @@ func main() {
 	//创建两个变量str1、str2用来存放读取的文本
 	address := ""
 	fmt.Println("请输入第一个文本所在地址：")
-	address = "C:\\Users\\Administrator\\Desktop\\测试文本\\orig.txt"
+	address = "C:\\Users\\66389\\Desktop\\测试文本\\orig.txt"
 	str1 := utils.TxtReading(address)
 	fmt.Println("请输入第二个文本所在地址：")
-	address = "C:\\Users\\Administrator\\Desktop\\测试文本\\orig_0.8_add.txt"
+	address = "C:\\Users\\66389\\Desktop\\测试文本\\orig_0.8_add.txt"
 	str2 := utils.TxtReading(address)
 
 	//计算simhash

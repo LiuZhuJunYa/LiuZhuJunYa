@@ -1,7 +1,6 @@
 package utils
 
 import (
-	"fmt"
 	"io/ioutil"
 	"strconv"
 )
@@ -10,7 +9,7 @@ import (
 func TxtReading(address string) string {
 	data, err := ioutil.ReadFile(address)
 	if err != nil {
-		fmt.Println(err)
+		Protect(err)
 		return "TXT Reading Error..."
 	}
 	str := string(data)
@@ -22,6 +21,6 @@ func TxtWriting(address string, sim float64) {
 	str := strconv.FormatFloat(sim, 'f', -1, 64)
 	err := ioutil.WriteFile(address, []byte(str), 0644)
 	if err != nil {
-		fmt.Println(err)
+		Protect(err)
 	}
 }

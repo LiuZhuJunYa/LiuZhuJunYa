@@ -21,6 +21,7 @@ func Params() (s *SimHash) {
 //字符串哈希算法(md5)
 func (s *SimHash) Hash(token string) *big.Int {
 	if token == "" {                                          //假如在划分字符串的时候没有得到内容，马上结束
+		Protect("文本划分时出现了错误...")
 		return big.NewInt(0)
 	} else {
 		bigIntToken := big.NewInt(int64(token[0]))
