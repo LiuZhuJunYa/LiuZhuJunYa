@@ -48,7 +48,7 @@ func (s *SimHash) Hash(token string) *big.Int {
 //核心算法海明距离的实现
 func (s *SimHash) Simhash(str string) *big.Int {
 	//核心方法之一，对传入文本进行分割，选择的参数会影响到simhash的计算
-	m := strings.Split(str, "，")
+	m := strings.Split(str, "\"")
 
 	token_int := make([]int, s.HashBits)
 	for i := 0; i < len(m); i++ {
