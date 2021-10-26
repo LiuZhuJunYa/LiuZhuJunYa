@@ -16,7 +16,7 @@ public class FormatUtil {
      * @param denominator 分母
      * @return String 格式化后的分数
      */
-    public static String Format(int molecular, int denominator) {
+    public static String format(int molecular, int denominator) {
         String fraction = null;
         int min = 0;
         //分子分母最小值
@@ -37,7 +37,7 @@ public class FormatUtil {
             //真分数，如果分子大于分母，可以化简为真分数
             if (molecular > denominator) {
                 //真分数：整数‘分子模分母作为分子，分母不变
-                fraction = String.valueOf(molecular / denominator) + "'" + String.valueOf(molecular % denominator) + "/" + String.valueOf(denominator);
+                fraction = molecular / denominator + "'" + molecular % denominator + "/" + denominator;
             } else {
                 fraction = molecular + "/" + denominator;
             }
@@ -51,17 +51,13 @@ public class FormatUtil {
      * @return 格式化后的结果
      * @throws Exception
      **/
-    public static String finalResult(String num) throws Exception {
-        String[] nums = new String[2];
+    public static String finalResult(String num) throws NumberFormatException {
+        String[] nums = new String[2]; //存储分子和分母
         int mole, deno;
         nums = FractionUtil.change(num);
-        mole = Integer.parseInt(nums[0]);
-        deno = Integer.parseInt(nums[1]);
-        String finalResult = Format(mole, deno);
-        if(finalResult.contains("-")) {//部分运算结果为负数
-            throw new Exception();
-        }else {
-            return finalResult;
-        }
+        mole = Integer.parseInt(nums[0]);//分子
+        deno = Integer.parseInt(nums[1]);//分母
+        String finalResult = format(mole, deno);
+        return finalResult;
     }
 }
